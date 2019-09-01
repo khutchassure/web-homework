@@ -1,10 +1,10 @@
-const { TransactionModel } = require('../data-models/Transaction')
+const { MerchantModel } = require('../data-models/Merchant')
 const { packageModel } = require('./utils.js')
 
 async function find (criteria) {
   const query = Object.keys(criteria).length
-    ? TransactionModel.find(criteria)
-    : TransactionModel.find()
+    ? MerchantModel.find(criteria).lean()
+    : MerchantModel.find().lean()
 
   const transactions = await query.exec()
 
@@ -12,7 +12,7 @@ async function find (criteria) {
 }
 
 async function findOne (id) {
-  const query = TransactionModel.findById(id)
+  const query = MerchantModel.findById(id).lean()
   const transaction = await query.exec()
 
   return packageModel(transaction)[0] || null
