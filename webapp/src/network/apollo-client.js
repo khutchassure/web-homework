@@ -61,11 +61,14 @@ export const client = new ApolloClient({
       cache
     }),
     new HttpLink({
-      uri: SERVER_URL,
-      credentials: 'include'
+      uri: SERVER_URL
+      // credentials: 'include'
     })
   ]),
-  cache
+  cache,
+  fetchOptions: {
+    mode: 'no-cors'
+  }
 })
 
 window.__APOLLO_CLIENT__ = client

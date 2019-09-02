@@ -61,8 +61,6 @@ module.exports = function main (options, cb) {
   // Create the express app
   const app = express()
   app.use(express.static(path.join(__dirname, 'public')))
-
-  // trying to resolve cors issue, no luck
   app.use(cors())
   app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
