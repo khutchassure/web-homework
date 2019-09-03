@@ -2,7 +2,6 @@
 const exGraphql = require('express-graphql')
 const graphqlSchema = require('./schema/schema.js')
 const path = require('path')
-const cors = require('cors')
 
 module.exports = function (app, opts) {
   // Setup routes, middleware, and handlers
